@@ -4,20 +4,26 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>OPEN SIGN — first sites for people starting</title>
-  <meta name="description" content="Sites for people who want to start a business and don’t know the first move. Also: put existing sites in front of more people." />
+  <meta name="description" content="A door for people who want a business and do not have a site yet. First-business pages, plus a board that puts other live sites in front of more eyes." />
+  <meta name="theme-color" content="#050508" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            ink: "#07080c",
-            line: "#3b82ff",
-            heat: "#ff2a2a",
-            paper: "#f4f1ea"
+            ink: "#050508",
+            line: "#4D8BFF",
+            heat: "#FF2B3A",
+            paper: "#F3EEE4"
           },
           fontFamily: {
-            sans: ["ui-sans-serif", "system-ui", "Inter", "Segoe UI", "sans-serif"]
+            display: ["Syne", "ui-sans-serif", "system-ui", "sans-serif"],
+            mono: ["IBM Plex Mono", "ui-monospace", "SFMono-Regular", "monospace"],
+            sans: ["ui-sans-serif", "system-ui", "Segoe UI", "sans-serif"]
           }
         }
       }
@@ -25,83 +31,187 @@
   </script>
   <style>
     html { scroll-behavior: smooth; }
-    body { background: #07080c; color: #f4f1ea; }
+    body { background: #050508; color: #F3EEE4; }
     .grid-fade {
       background-image:
-        linear-gradient(rgba(59,130,255,.07) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(59,130,255,.07) 1px, transparent 1px);
-      background-size: 48px 48px;
+        linear-gradient(rgba(77,139,255,.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(77,139,255,.06) 1px, transparent 1px);
+      background-size: 40px 40px;
     }
+    .neon {
+      color: #4D8BFF;
+      text-shadow:
+        0 0 8px rgba(77,139,255,.85),
+        0 0 28px rgba(77,139,255,.45),
+        0 0 64px rgba(77,139,255,.2);
+    }
+    .neon-heat {
+      color: #FF2B3A;
+      text-shadow:
+        0 0 8px rgba(255,43,58,.9),
+        0 0 24px rgba(255,43,58,.4);
+    }
+    .sign-frame {
+      border: 2px solid rgba(77,139,255,.55);
+      box-shadow:
+        0 0 0 6px rgba(5,5,8,.9),
+        0 0 0 8px rgba(77,139,255,.25),
+        0 0 40px rgba(77,139,255,.18);
+    }
+    .flicker { animation: flicker 4.8s infinite; }
+    @keyframes flicker {
+      0%, 19%, 21%, 23%, 80%, 100% { opacity: 1; }
+      20%, 22% { opacity: .55; }
+    }
+    .reveal { opacity: 0; }
   </style>
 </head>
-<body class="antialiased">
+<body class="antialiased font-sans">
   <header class="fixed top-0 inset-x-0 z-50 border-b border-white/10 bg-ink/80 backdrop-blur">
     <div class="max-w-6xl mx-auto px-5 h-14 flex items-center justify-between">
-      <a href="#top" class="font-semibold tracking-tight">OPEN SIGN<span class="text-heat">.</span></a>
-      <nav class="flex items-center gap-5 text-sm text-white/70">
+      <a href="#top" class="font-display font-bold tracking-tight">OPEN SIGN<span class="text-heat">.</span></a>
+      <nav class="flex items-center gap-5 text-sm text-white/70 font-mono">
         <a href="#lanes" class="hover:text-white">Lanes</a>
-        <a href="#work" class="hover:text-white">Sites</a>
+        <a href="#board" class="hover:text-white">Board</a>
         <a href="#start" class="text-ink bg-line px-3 py-1.5 rounded-full hover:bg-white">Start</a>
       </nav>
     </div>
   </header>
+
   <main id="top">
-    <section class="grid-fade pt-28 pb-20 px-5">
-      <div class="max-w-6xl mx-auto">
-        <p class="text-line text-xs tracking-[0.25em] uppercase mb-5 reveal">For first businesses + existing sites</p>
-        <h1 class="reveal text-5xl sm:text-7xl font-semibold leading-[0.95] max-w-4xl">You want the shop.<br />You don’t have the door.</h1>
-        <p class="reveal mt-6 max-w-xl text-lg text-white/70">A site for people who want to start something and don’t know the first move — and a lane that puts other websites in front of more eyes.</p>
-        <div class="reveal mt-8 flex flex-wrap gap-3">
-          <a href="#start" class="bg-heat text-white px-5 py-3 rounded-full font-medium">I don’t know where to start</a>
-          <a href="#work" class="border border-white/20 px-5 py-3 rounded-full hover:border-line">Show me other sites</a>
+    <section class="grid-fade pt-28 pb-20 px-5 overflow-hidden">
+      <div class="max-w-6xl mx-auto grid lg:grid-cols-[1.15fr_.85fr] gap-12 items-center">
+        <div>
+          <p class="reveal font-mono text-line text-xs tracking-[0.28em] uppercase mb-5">For first businesses + live sites</p>
+          <h1 class="reveal font-display font-extrabold text-5xl sm:text-7xl leading-[0.92] tracking-tight">
+            You have the idea.<br />
+            You don’t have the <span class="neon-heat">door</span>.
+          </h1>
+          <p class="reveal mt-6 max-w-xl text-lg text-white/70">
+            A one-page shop window for people who want to start something and do not know the first move — built for phones, aimed at young adults. Second lane: put a site that already exists in front of more people.
+          </p>
+          <div class="reveal mt-8 flex flex-wrap gap-3">
+            <a href="#start" class="bg-heat text-white px-5 py-3 rounded-full font-medium hover:brightness-110">I don’t know where to start</a>
+            <a href="#board" class="border border-white/20 px-5 py-3 rounded-full hover:border-line">Show me the board</a>
+          </div>
+        </div>
+        <div class="reveal flex justify-center lg:justify-end">
+          <div class="sign-frame rounded-sm px-8 py-10 sm:px-12 sm:py-14 bg-ink text-center rotate-[-2deg]">
+            <p class="font-mono text-[10px] tracking-[0.4em] text-white/40 uppercase mb-3">now serving</p>
+            <p class="flicker neon font-display font-extrabold text-6xl sm:text-7xl leading-none">OPEN</p>
+            <p class="mt-3 font-mono text-xs tracking-[0.35em] uppercase text-white/50">first sites · live board</p>
+          </div>
         </div>
       </div>
     </section>
+
     <section id="lanes" class="px-5 py-16 border-t border-white/10">
-      <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-4">
-        <article class="reveal border border-white/10 p-7 rounded-2xl bg-white/[0.03]">
-          <p class="text-line text-xs tracking-widest uppercase">Lane 01</p>
-          <h2 class="text-3xl font-semibold mt-2">First business site</h2>
-          <p class="mt-3 text-white/70">You have a skill, a product, or a half-idea. No LLC lecture. One page that says who you are, what you sell, and how to hit you — built for phones first.</p>
-        </article>
-        <article class="reveal border border-white/10 p-7 rounded-2xl bg-white/[0.03]">
-          <p class="text-heat text-xs tracking-widest uppercase">Lane 02</p>
-          <h2 class="text-3xl font-semibold mt-2">Promote a site that already exists</h2>
-          <p class="mt-3 text-white/70">If the site is live and quiet, it gets a slot here: name, one-line pitch, link. Built to send people through, not trap them.</p>
-        </article>
+      <div class="max-w-6xl mx-auto">
+        <p class="reveal font-mono text-xs tracking-[0.25em] uppercase text-white/40">Two lanes. Pick one.</p>
+        <div class="mt-6 grid md:grid-cols-2 gap-4">
+          <article class="reveal border border-white/10 p-7 rounded-2xl bg-white/[0.03]">
+            <p class="font-mono text-line text-xs tracking-widest uppercase">Lane 01</p>
+            <h2 class="font-display font-bold text-3xl mt-2">First business site</h2>
+            <p class="mt-3 text-white/70">You have a skill, a product, a weekend idea. No LLC lecture. One page that says who you are, what you sell, and how to hit you. Phone first. You own the files.</p>
+          </article>
+          <article class="reveal border border-white/10 p-7 rounded-2xl bg-white/[0.03]">
+            <p class="font-mono text-heat text-xs tracking-widest uppercase">Lane 02</p>
+            <h2 class="font-display font-bold text-3xl mt-2">Promote a live site</h2>
+            <p class="mt-3 text-white/70">If the site is already up and quiet, it gets a slot on the board: name, one-line pitch, link out. Built to send people through the door, not keep them here.</p>
+          </article>
+        </div>
       </div>
     </section>
+
+    <section class="px-5 py-16 border-t border-white/10">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-4">
+        <div class="reveal md:col-span-3 mb-2">
+          <h2 class="font-display font-bold text-3xl">Built for people who just decided.</h2>
+        </div>
+        <p class="reveal text-white/70">Young adults with a side thing and no storefront. Adults switching jobs who want a page before they print cards.</p>
+        <p class="reveal text-white/70">Not an agency deck. Not a 12-page brand book. A door you can send in a text.</p>
+        <p class="reveal text-white/70">If you already have a site, skip the build. Ask for a board slot and get traffic instead of another login.</p>
+      </div>
+    </section>
+
     <section class="px-5 py-16 border-t border-white/10">
       <div class="max-w-6xl mx-auto">
-        <h2 class="reveal text-3xl font-semibold">How this works</h2>
+        <h2 class="reveal font-display font-bold text-3xl">How this works</h2>
         <ol class="mt-8 grid md:grid-cols-3 gap-4">
-          <li class="reveal border border-white/10 p-6 rounded-2xl"><span class="text-line font-mono text-sm">01</span><p class="mt-2 font-medium">You send a paragraph</p><p class="text-white/60 text-sm mt-1">Name, what you want to sell or show, who it’s for. Budget if you have one.</p></li>
-          <li class="reveal border border-white/10 p-6 rounded-2xl"><span class="text-line font-mono text-sm">02</span><p class="mt-2 font-medium">A first draft ships</p><p class="text-white/60 text-sm mt-1">One maker. Tailwind, light motion, loads fast. You own the files.</p></li>
-          <li class="reveal border border-white/10 p-6 rounded-2xl"><span class="text-line font-mono text-sm">03</span><p class="mt-2 font-medium">It goes live</p><p class="text-white/60 text-sm mt-1">Domain + host handoff. If you already have a site, it can sit on the board below.</p></li>
+          <li class="reveal border border-white/10 p-6 rounded-2xl">
+            <span class="font-mono text-line text-sm">01</span>
+            <p class="mt-2 font-medium">You send a paragraph</p>
+            <p class="text-white/60 text-sm mt-1">Name, what you want to sell or show, who it is for. Budget if you have one.</p>
+          </li>
+          <li class="reveal border border-white/10 p-6 rounded-2xl">
+            <span class="font-mono text-line text-sm">02</span>
+            <p class="mt-2 font-medium">A first draft ships</p>
+            <p class="text-white/60 text-sm mt-1">One maker. Tailwind, light motion, loads fast. Files stay yours.</p>
+          </li>
+          <li class="reveal border border-white/10 p-6 rounded-2xl">
+            <span class="font-mono text-line text-sm">03</span>
+            <p class="mt-2 font-medium">It goes live</p>
+            <p class="text-white/60 text-sm mt-1">Domain + host handoff. Existing sites skip this and sit on the board.</p>
+          </li>
         </ol>
       </div>
     </section>
-    <section id="work" class="px-5 py-16 border-t border-white/10">
+
+    <section id="board" class="px-5 py-16 border-t border-white/10">
       <div class="max-w-6xl mx-auto">
-        <h2 class="reveal text-3xl font-semibold">Sites on the board</h2>
+        <div class="flex items-end justify-between gap-4 flex-wrap">
+          <h2 class="reveal font-display font-bold text-3xl">Sites on the board</h2>
+          <p class="reveal font-mono text-xs text-white/40 uppercase tracking-widest">live · click through</p>
+        </div>
         <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          <a class="reveal group border border-white/10 rounded-2xl p-6 hover:border-line" href="https://iris-onyx.vercel.app" target="_blank" rel="noopener"><p class="text-xs text-white/40 uppercase tracking-widest">Artist</p><h3 class="text-xl font-semibold mt-2 group-hover:text-line">Iris Onyx</h3><p class="text-white/60 mt-2 text-sm">Listen, shows, art. Dark and fast on a phone.</p></a>
-          <a class="reveal group border border-white/10 rounded-2xl p-6 hover:border-line" href="https://dnc-computerz.vercel.app" target="_blank" rel="noopener"><p class="text-xs text-white/40 uppercase tracking-widest">Lot / classifieds</p><h3 class="text-xl font-semibold mt-2 group-hover:text-line">DNC Computerz</h3><p class="text-white/60 mt-2 text-sm">Parts, electronics, bench lots. A page that sells what is sitting there.</p></a>
-          <div class="reveal border border-dashed border-white/20 rounded-2xl p-6"><p class="text-xs text-heat uppercase tracking-widest">Open slot</p><h3 class="text-xl font-semibold mt-2">Your site next</h3><p class="text-white/60 mt-2 text-sm">New business or an existing URL that needs traffic. Send the brief.</p></div>
+          <a class="reveal group border border-white/10 rounded-2xl p-6 hover:border-line" href="https://iris0nyx.com" target="_blank" rel="noopener">
+            <p class="font-mono text-xs text-white/40 uppercase tracking-widest">Artist</p>
+            <h3 class="font-display font-bold text-xl mt-2 group-hover:text-line">Iris Onyx</h3>
+            <p class="text-white/60 mt-2 text-sm">Goth pop from Utah. Listen, shows, art. Dark and fast on a phone.</p>
+          </a>
+          <a class="reveal group border border-white/10 rounded-2xl p-6 hover:border-line" href="https://dnc-computerz.vercel.app" target="_blank" rel="noopener">
+            <p class="font-mono text-xs text-white/40 uppercase tracking-widest">Lot / classifieds</p>
+            <h3 class="font-display font-bold text-xl mt-2 group-hover:text-line">DNC Computerz</h3>
+            <p class="text-white/60 mt-2 text-sm">Towers, parts, screens on shop tickets. A page that sells what is sitting there.</p>
+          </a>
+          <a class="reveal group border border-white/10 rounded-2xl p-6 hover:border-line" href="https://github.com/citruswill2-cmd/sameweek" target="_blank" rel="noopener">
+            <p class="font-mono text-xs text-white/40 uppercase tracking-widest">Studio</p>
+            <h3 class="font-display font-bold text-xl mt-2 group-hover:text-line">Sameweek</h3>
+            <p class="text-white/60 mt-2 text-sm">Custom sites, built to brief, shipped fast. The shop that makes the doors.</p>
+          </a>
+          <div class="reveal border border-dashed border-white/20 rounded-2xl p-6">
+            <p class="font-mono text-xs text-heat uppercase tracking-widest">Open slot</p>
+            <h3 class="font-display font-bold text-xl mt-2">Your site next</h3>
+            <p class="text-white/60 mt-2 text-sm">New business or an existing URL that needs traffic. Send the paragraph.</p>
+          </div>
         </div>
       </div>
     </section>
+
     <section id="start" class="px-5 py-20 border-t border-white/10">
       <div class="max-w-3xl mx-auto">
-        <h2 class="reveal text-4xl font-semibold">Say the thing. That’s enough.</h2>
-        <p class="reveal mt-4 text-white/70">No discovery call required. Email a paragraph. If it fits, a draft comes back.</p>
-        <p class="mt-4 text-sm text-white/40">Direct: <a class="underline hover:text-line" href="mailto:citruswill2@gmail.com">citruswill2@gmail.com</a></p>
+        <h2 class="reveal font-display font-extrabold text-4xl sm:text-5xl leading-tight">Say the thing. That’s enough.</h2>
+        <p class="reveal mt-4 text-white/70">No discovery call. Email a paragraph. If it fits, a draft comes back. If you already have a URL, send that instead and ask for the board.</p>
+        <a class="reveal inline-block mt-8 bg-line text-ink px-6 py-3 rounded-full font-medium hover:bg-white" href="mailto:citruswill2@gmail.com?subject=OPEN%20SIGN%20brief&body=Name%3A%0AWhat%20I%20want%20the%20site%20to%20do%3A%0AWho%20it%20is%20for%3A%0ABudget%20(or%20not%20sure)%3A%0ALive%20URL%20if%20I%20already%20have%20one%3A">citruswill2@gmail.com</a>
       </div>
     </section>
   </main>
+
+  <footer class="px-5 py-8 border-t border-white/10 text-white/35 font-mono text-xs flex flex-wrap justify-between gap-2">
+    <p>OPEN SIGN · files you own</p>
+    <p>night black · #4D8BFF · #FF2B3A</p>
+  </footer>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
   <script>
-    anime({ targets: ".reveal", opacity: [0, 1], translateY: [16, 0], delay: anime.stagger(70), duration: 520, easing: "easeOutQuad" });
+    anime({
+      targets: ".reveal",
+      opacity: [0, 1],
+      translateY: [18, 0],
+      delay: anime.stagger(64),
+      duration: 480,
+      easing: "easeOutQuad"
+    });
   </script>
 </body>
 </html>

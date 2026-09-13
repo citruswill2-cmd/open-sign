@@ -1,5 +1,5 @@
 OPEN SIGN — first sites for people starting a business, plus a board that promotes other websites.
 
-REDLINE first-draft. Client-owned single HTML.
+REDLINE first-draft. Client-owned single HTML. Tailwind CDN + anime.js. Drop `index.html` on Vercel.
 
-Live: https://open-sign-citruswill2-cmds-projects.vercel.app
+Contact: citruswill2@gmail.com
